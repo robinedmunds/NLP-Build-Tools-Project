@@ -1,12 +1,27 @@
+@import "colours";
+
+$border-rad: 10px;
+
 form {
-    border: 1px solid #545454;
+    border: 1px solid $col-txt2;
     border-radius: 3px;
     padding: 40px;
-}
+    border-radius: $border-rad;
+    
+    input {
+        padding: 5px 20px;
+        width: 100%;
+        line-height: 16px;
+        margin: 10px 0;
+        border-radius: $border-rad;
+    }
 
-input {
-    padding: 5px 20px;
-    width: 100%;
-    line-height: 16px;
-    margin: 10px 0;
+    input[type=submit] {
+        background-color: $col-txt2;
+        text-transform: capitalize;
+        font-weight: bold;
+        &:hover {
+            background-color: $col-highlight;
+        }
+    }
 }
