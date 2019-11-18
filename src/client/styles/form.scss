@@ -11,9 +11,12 @@ form {
     input {
         padding: 5px 20px;
         width: 100%;
-        line-height: 16px;
+        line-height: 1.2em;
         margin: 10px 0;
         border-radius: $border-rad;
+        font-family: inherit;
+        font-size: 1.1em;
+        color: $col-bg;
     }
 
     input[type=submit] {
