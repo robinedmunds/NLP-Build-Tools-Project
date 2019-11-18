@@ -5,10 +5,10 @@ import { handleSubmit } from './js/formHandler'
 
 // styles
 import "./styles/resets.css"
-import "./styles/base.css"
-import "./styles/header.css"
-import "./styles/form.css"
-import "./styles/footer.css"
+import "./styles/base.scss"
+import "./styles/header.scss"
+import "./styles/form.scss"
+import "./styles/footer.scss"
 
 // tests
 alert("I EXIST")
