@@ -1,0 +1,20 @@
+@import "colours";
+
+$padding-h: 1em;
+$padding-v: 0.5em;
+
+footer {
+  display: flex;
+  justify-content: center;
+  
+  p {
+    display: block;
+    padding-left: $padding-h;
+    padding-right: $padding-h;
+    padding-top: $padding-v;
+    padding-bottom: $padding-v;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: $col-lowlight;
+  }
+}
