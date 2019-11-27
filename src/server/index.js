@@ -23,12 +23,33 @@ app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "../../dist/index.html"));
 });
 
-app.get("/test", function (req, res) {
-    res.send(mockAPIResponse);
-});
+const callAylien = async (parent_response, url) => {
+    try {
+        const textapi = new AYLIENTextAPI({
+            application_id: process.env.API_ID,
+            application_key: process.env.API_KEY
+        });
 
-app.post("/api/analyse", function (req, res) {
-    // take form data, call api, return output json
-    res.send(req.body);
-    console.log(req.body)
+        textapi.classify({
+            "url": url
+        }, function (error, response) {
+            if (error === null) {
+                console.log(response);
+                parent_response.send(response);
+            };
+        });
+    } catch (err) {
+        console.log("  callAylien error: " + err);
+    };
+};
+
+app.post("/api/classify", (req, res) => {
+    // get form data, validate form data, aylien query, return json response
+    const REGEX_URL = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
+    if (REGEX_URL.test(req.body.url)) {
+        const formURL = req.body.url;
+        callAylien(res, formURL);
+    } else {
+        res.send("Error: Submitted URL invalid.");
+    };
 });
