@@ -11,5 +11,5 @@ import "./styles/form.scss"
 import "./styles/footer.scss"
 
 // tests
-alert("I EXIST")
+// alert("I EXIST")
 console.log("CHANGE!!");
