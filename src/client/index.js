@@ -2,6 +2,7 @@
 
 import { checkForName } from './js/nameChecker'
 import { handleSubmit } from './js/formHandler'
+import { classifyURL } from "./js/classifyURL"
 
 // styles
 import "./styles/resets.css"
@@ -10,6 +11,5 @@ import "./styles/header.scss"
 import "./styles/form.scss"
 import "./styles/footer.scss"
 
-// tests
-// alert("I EXIST")
-console.log("CHANGE!!");
+// initialise
+classifyURL()
