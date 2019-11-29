@@ -9,20 +9,19 @@ function classifyURL() {
 
   async function fetchClassifyAPI(url) {
     const endpoint = "/api/classify";
-    // const data = {url: url};
+    const postData = JSON.stringify({url: url});
     try {
       const response = await fetch(endpoint, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'no-cors', // no-cors, *cors, same-origin
+        mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
-          // 'Content-Type': 'application/json'
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json'
         },
         redirect: 'follow', // manual, *follow, error
         referrer: 'no-referrer', // no-referrer, *client
-        body: "url=" + url // body data type must match "Content-Type" header
+        body: postData // body data type must match "Content-Type" header
       })
       return response;
     } catch (err) {
@@ -30,12 +29,18 @@ function classifyURL() {
     };
   };
 
-  function classifyURLHandler(event) {
-    const formURL = document.getElementById("url").value;
-    if (validURL(formURL)) {
-      fetchClassifyAPI(formURL);
-      console.log(formURL);
-    };
+  async function classifyURLHandler(event) {
+    try {
+      const formURL = document.getElementById("url").value;
+      if (validURL(formURL)) {
+        const response = await fetchClassifyAPI(formURL);
+        const body = await response.json();
+        console.log(body);
+      };
+
+    } catch (err) {
+      console.log(err);
+    }
   };
   
   function addClassifyURLEvent() {
