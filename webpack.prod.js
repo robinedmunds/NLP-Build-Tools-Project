@@ -2,9 +2,14 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 
 module.exports = {
-    entry: './src/client/index.js',
+    
+    entry: [
+        'regenerator-runtime/runtime',
+        './src/client/index.js'
+    ],
     mode: 'production',
     module: {
         rules: [
@@ -34,6 +39,9 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: "styles.css"
+        }),
+        new ServiceWorkerWebpackPlugin({
+            entry: path.join(__dirname, "./src/client/js/serviceWorker.js"),
         })
     ]
 }
