@@ -3,6 +3,7 @@
 import { checkForName } from './js/nameChecker'
 import { handleSubmit } from './js/formHandler'
 import { classifyURL } from "./js/classifyURL"
+import { serviceWorkerInit } from "./js/swInit"
 
 // styles
 import "./styles/resets.css"
@@ -13,3 +14,4 @@ import "./styles/footer.scss"
 
 // initialise
 classifyURL()
+serviceWorkerInit()
