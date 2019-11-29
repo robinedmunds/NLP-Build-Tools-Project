@@ -66,6 +66,8 @@ function classifyURL() {
         const response = await fetchClassifyAPI(formURL);
         const body = await response.json();
         updateResultsView(body);
+      } else {
+        alert("Please enter a valid URL...");
       };
 
     } catch (err) {
