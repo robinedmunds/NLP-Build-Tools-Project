@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 
 module.exports = {
     entry: [
@@ -44,6 +45,9 @@ module.exports = {
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
+        }),
+        new ServiceWorkerWebpackPlugin({
+            entry: path.join(__dirname, "./src/client/js/serviceWorker.js"),
         })
     ]
 }
