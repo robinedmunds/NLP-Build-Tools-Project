@@ -29,6 +29,20 @@ function classifyURL() {
     };
   };
 
+  function updateResultsView(classifyResponse) {
+    const resultsDiv = document.getElementById("results");
+    const docFragment = document.createDocumentFragment();
+    for (let key in classifyResponse) {
+      const h2 = document.createElement("h2");
+      h2.innerText = key;
+      docFragment.appendChild(h2);
+      const p = document.createElement("p");
+      p.innerText = classifyResponse[key];
+      docFragment.appendChild(p);
+    };
+    resultsDiv.appendChild(docFragment);
+  };
+
   async function classifyURLHandler(event) {
     try {
       const formURL = document.getElementById("url").value;
@@ -36,6 +50,7 @@ function classifyURL() {
         const response = await fetchClassifyAPI(formURL);
         const body = await response.json();
         console.log(body);
+        updateResultsView(body);
       };
 
     } catch (err) {
