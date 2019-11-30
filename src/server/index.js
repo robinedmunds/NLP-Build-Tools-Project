@@ -19,7 +19,7 @@ app.use(cors());
 const LISTEN_PORT = 8080;
 
 app.listen(LISTEN_PORT, function () {
-    console.log("Example app listening on port 8080!");
+    console.log("Express back-end app listening on port 8080!");
 });
 
 app.get("/", function (req, res) {
@@ -47,7 +47,6 @@ const callAylien = async (parent_response, url) => {
 };
 
 app.post("/api/classify", (req, res) => {
-    // get form data, validate form data, aylien query, return json response
     const REGEX_URL = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
     if (REGEX_URL.test(req.body.url)) {
         const formURL = req.body.url;
