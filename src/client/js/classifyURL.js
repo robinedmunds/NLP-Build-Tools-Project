@@ -66,10 +66,9 @@ export async function classifyURLHandler(event) {
     } else {
       alert("Please enter a valid URL...");
     };
-
   } catch (err) {
     console.log(err);
-  }
+  };
 };
 
 export function addClassifyURLEvent() {
