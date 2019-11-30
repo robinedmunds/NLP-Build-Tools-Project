@@ -2,7 +2,7 @@
 
 import { checkForName } from './js/nameChecker'
 import { handleSubmit } from './js/formHandler'
-import { classifyURL } from "./js/classifyURL"
+import * as classifyURL from "./js/classifyURL"
 import { serviceWorkerInit } from "./js/swInit"
 
 // styles
@@ -13,5 +13,5 @@ import "./styles/form.scss"
 import "./styles/footer.scss"
 
 // initialise
-classifyURL()
+classifyURL.addClassifyURLEvent();
 serviceWorkerInit()
