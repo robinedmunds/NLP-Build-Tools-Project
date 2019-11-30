@@ -1,0 +1,27 @@
+@import "colours";
+
+$padding: 30px;
+
+#results {
+
+  h2, h3 {
+    font-size: 1.8em;
+    text-decoration: underline;
+    padding-top: $padding;
+    padding-bottom: $padding;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 1.6em;
+  }
+
+  p {
+    padding-top: $padding;
+    padding-bottom: $padding;
+  }
+
+}
