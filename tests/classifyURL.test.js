@@ -1,6 +1,6 @@
 import { validURL } from "../src/client/js/classifyURL"
 
-describe("Test classifyURL functions", () => {
+describe("Test classifyURL.js functions", () => {
   test("validURL(url) should return FALSE when an invalid url string is passed.", () => {
     const input = [
       "",
