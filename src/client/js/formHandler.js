@@ -12,7 +12,7 @@ function handleSubmit(event) {
     .then(res => res.json())
     .then(function(res) {
         document.getElementById('results').innerHTML = res.message
-    })
+    }).catch(() => {});
 }
 
 export { handleSubmit }
