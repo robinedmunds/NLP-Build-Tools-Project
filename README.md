@@ -1,5 +1,7 @@
 # NLP Build Tools Project 2019
 
+THIS REPO IS **NOT MAINTAINED**. THERE ARE **MANY VULNERABILITIES** WITH OUTDATED DEPENDENCIES.
+
 ## About
 
 This project is part of the Udacity Front-End course. Its purpose is to demonstrate the use of the webpack build tool. Two webpack configs have been created, one for development which utilises the webpack-dev-server; and a production config which minifies both css and js assets and saves them in the `dist/` directory.
